@@ -23,7 +23,7 @@ function normalizeUrl(url: string): string | undefined {
 // Convert text to list of strings and links
 function urlify(text: string): (string | ReactNode)[] {
   const urlRegex =
-    /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
+    /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g; // eslint-disable-line
   let messages = [];
 
   const urlMatches = text.matchAll(urlRegex);
@@ -31,7 +31,7 @@ function urlify(text: string): (string | ReactNode)[] {
   let urlMatch = urlMatches.next();
   let cursor = 0;
   while (!urlMatch.done) {
-    if (urlMatch.value.index != window.undefined) {
+    if (urlMatch.value.index !== window.undefined) {
       messages.push(text.slice(cursor, urlMatch.value.index));
       messages.push(
         <a href={normalizeUrl(urlMatch.value[0])}>{urlMatch.value[0]}</a>
@@ -54,7 +54,7 @@ const MessageComponent: FC<{
     <div
       className={styleClasses.message}
       onClick={() => {
-        if (focusId != message.id) {
+        if (focusId !== message.id) {
           setFocusId(message.id);
         } else {
           setFocusId(undefined);

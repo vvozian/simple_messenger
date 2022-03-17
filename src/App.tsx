@@ -69,7 +69,7 @@ const App: FC = () => {
   function generateSubmitButton() {
     const style: React.CSSProperties = {};
 
-    if (focusedMessageId != undefined) {
+    if (focusedMessageId !== undefined) {
       style.backgroundColor = "#a66";
     }
 
@@ -78,7 +78,7 @@ const App: FC = () => {
         sendMessage();
       } else {
         const newMessages = messages.filter((message) => {
-          return message.id != focusedMessageId;
+          return message.id !== focusedMessageId;
         });
         setMessages(newMessages);
         localStorage.setItem("messages", JSON.stringify(newMessages));
@@ -104,7 +104,7 @@ const App: FC = () => {
     <div className={styleClasses.app}>
       <div className={styleClasses.mainContainer}>
         <div className={styleClasses.chat}>
-          {messages.length != 0 ? (
+          {messages.length !== 0 ? (
             messages.map((message) => {
               return (
                 <MessageContainer type="right">
