@@ -1,0 +1,23 @@
+.message {
+  max-width: 100%;
+  padding: 10px 10px 5px 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.messageText {
+  color: #111;
+  font-size: 1em;
+  margin-bottom: 5px;
+  word-wrap: break-word;
+  white-space: pre-line;
+}
+
+.messageFooter {
+  color: #aaa;
+  font-size: 0.75em;
+  width: 100%;
+  text-align: right;
+}
